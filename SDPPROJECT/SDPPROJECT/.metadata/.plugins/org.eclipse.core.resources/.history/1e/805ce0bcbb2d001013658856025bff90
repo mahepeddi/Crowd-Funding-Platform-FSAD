@@ -1,0 +1,12 @@
+package com.klef.fsd.project.dto;
+
+
+public class CampaignDTO 
+{
+	public String category;
+    public String title;
+    public String description;
+    public int members;
+    public double cost;
+    public int manager_id;
+}

@@ -1,0 +1,38 @@
+package com.example.demo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.model.Event;
+import com.example.demo.service.EventService;
+@CrossOrigin
+@RestController
+@RequestMapping("/exam/event")
+public class EventController{
+    @Autowired
+    private EventService service;
+    @GetMapping("/")
+    public String home(){
+        return "event exam";
+    }
+    @GetMapping("/view")
+    public List<Event> viewall(){
+        return service.viewall();
+    }
+    @PostMapping("/add")
+    public String addevent(@RequestBody Event e){
+        return service.addevent(e);
+    }
+    @GetMapping("/display")
+    public String displayevent(@RequestParam int eid){
+        Event e = service.viewevent(eid);
+        if (e != null){
+            return e.toString();
+        } 
+        else{
+            return "ID not found";
+        }
+    }
+}

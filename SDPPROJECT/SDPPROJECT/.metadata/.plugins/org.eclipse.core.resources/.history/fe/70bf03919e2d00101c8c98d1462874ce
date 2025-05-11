@@ -1,0 +1,5 @@
+package com.klef.fsd.project.service;
+
+public interface AdminService {
+
+}

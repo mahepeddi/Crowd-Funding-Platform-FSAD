@@ -1,0 +1,18 @@
+package com.klef.fsd.project.dto;
+
+
+public class CampaignDTO 
+{
+	@Data
+	@NoArgsConstructor
+	@AllArgsConstructor
+	public class CampaignDTO {
+	   private String category;
+	   private String title;
+	   private String description;
+	   private int members;
+	   private double donations;
+	   private int manager_id;
+	}
+
+} 

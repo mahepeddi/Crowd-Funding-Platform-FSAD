@@ -1,0 +1,7 @@
+package com.klef.fsd.project.repository;
+
+public interface DonorRepository 
+{
+	
+
+}

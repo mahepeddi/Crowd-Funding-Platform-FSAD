@@ -1,0 +1,80 @@
+/* Base container */
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f7fa;
+  color: #222;
+}
+
+/* Logo styles */
+.logo {
+  height: 5em;
+  padding: 1em;
+  transition: transform 0.3s, filter 0.3s;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(30,200,120,0.10);
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 2em #1de982cc);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafb);
+}
+
+/* Logo spin animation */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Card style */
+.card {
+  background: #fff;
+  padding: 2rem;
+  margin: 1.5rem auto;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(30,200,120,0.08);
+  max-width: 600px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Text for documentation links or hints */
+.read-the-docs {
+  color: #888;
+  font-size: 1rem;
+  margin-top: 1rem;
+  display: block;
+}
+
+/* Link style improvement */
+a {
+  color: #1de982;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0f2027;
+}

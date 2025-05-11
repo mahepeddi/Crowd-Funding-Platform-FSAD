@@ -1,0 +1,23 @@
+package com.klef.fsd.project.service;
+
+import java.util.List;
+
+import com.klef.fsd.project.model.BookCampaign;
+import com.klef.fsd.project.model.Campaign;
+import com.klef.fsd.project.model.Manager;
+
+	public interface ManagerService 
+	{
+	  public Manager checkmanagerlogin(String username,String password);
+	  
+	  public String addevent(Campaign event);
+	  public List<Campaign> viewcampaignsbymanager(int cid);
+	  
+	  public Manager getManagerById(int mid);
+	  
+	  public List<BookEvent> getbookingsbyManager(int mid);
+	  
+	  public String updatebookingstatus(int id,String status);
+	}
+
+}

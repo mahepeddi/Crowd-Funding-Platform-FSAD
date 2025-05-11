@@ -1,0 +1,85 @@
+      package com.klef.fsd.project.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.klef.fsd.project.dto.DonationDTO;
+import com.klef.fsd.project.model.Donation;
+import com.klef.fsd.project.service.DonationService;
+
+@RestController
+@RequestMapping("/donation")
+@CrossOrigin("*")
+public class DonationsController 
+{
+    @Autowired
+    private DonationService donationService;
+
+    @PostMapping("/adddonation")
+    public ResponseEntity<String> addDonation(
+        @RequestParam String category,
+        @RequestParam String name,
+        @RequestParam String description,
+        @RequestParam double members,
+        @RequestParam double donations
+    ) {
+        Donation donation = new Donation();
+        donation.setCategory(category);
+        donation.setName(name);
+        donation.setDescription(description);
+        donation.setMembers(members);
+        donation.setDonations(donations);
+
+        donationService.addDonation(donation);
+        return ResponseEntity.ok("Donation added successfully.");
+    }
+
+    @GetMapping("/viewalldonations")
+    public ResponseEntity<List<DonationDTO>> viewAllDonations() 
+    {
+        List<Donation> donationList = donationService.viewallDonations();
+        List<DonationDTO> donationDTOList = new ArrayList<>();
+
+        for (Donation d : donationList) {
+            DonationDTO dto = new DonationDTO();
+            dto.setId(d.getId());
+            dto.setCategory(d.getCategory());
+            dto.setName(d.getName());
+            dto.setDescription(d.getDescription());
+            dto.setMembers(d.getMembers());
+            dto.setDonations(d.getDonations());
+            donationDTOList.add(dto);
+        }
+
+        return ResponseEntity.ok(donationDTOList);
+    }
+
+    @PostMapping("/displaydonationbyid")
+    public ResponseEntity<DonationDTO> displayDonationById(@RequestParam int did)
+    {
+        Donation d = donationService.viewDonationById(did);
+
+        if (d == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        DonationDTO dto = new DonationDTO();
+        dto.setId(d.getId());
+        dto.setCategory(d.getCategory());
+        dto.setName(d.getName());
+        dto.setDescription(d.getDescription());
+        dto.setMembers(d.getMembers());
+        dto.setDonations(d.getDonations());
+
+        return ResponseEntity.ok(dto);
+    }
+}

@@ -1,0 +1,24 @@
+package com.klef.fsd.project.model;
+
+
+	@Entity
+	@Table(name = "product_table")
+	public class Product 
+	{
+	  @Id
+	  @GeneratedValue(strategy = GenerationType.IDENTITY)
+	  @Column(name="product_id")
+	  private int id;
+	  @Column(name="product_category",nullable = false,length = 100)
+	  private String category;
+	  @Column(name="product_name",nullable = false,length = 100)
+	  private String name;
+	  @Column(name="product_desc",nullable = false,length = 500)
+	  private String description;
+	  @Column(name="product_cost",nullable = false)
+	  private double cost;
+	  @Column(name="product_url",length = 200,nullable=false)
+	  private String url;
+	  @Column(name="product_image",nullable = false)
+	  private Blob image; // blob - binary large object
+}

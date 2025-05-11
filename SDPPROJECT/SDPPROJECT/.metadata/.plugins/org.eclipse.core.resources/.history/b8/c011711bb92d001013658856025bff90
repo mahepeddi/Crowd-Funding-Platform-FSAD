@@ -1,0 +1,11 @@
+package com.klef.fsd.project.dto;
+
+public class DonationDTO 
+{
+	private int id;
+	private String category;
+	private String name;
+	private String description;
+	private double members;
+	private String donations;
+

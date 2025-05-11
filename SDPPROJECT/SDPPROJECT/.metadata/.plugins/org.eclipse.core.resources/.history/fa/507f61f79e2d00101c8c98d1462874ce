@@ -1,0 +1,23 @@
+package com.klef.fsd.project.service;
+
+import java.util.List;
+
+import com.klef.fsd.project.model.Admin;
+import com.klef.fsd.project.model.Donor;
+import com.klef.fsd.project.model.Manager;
+
+public interface AdminService 
+{
+	public Admin checkadminlogin(String username,String password);
+	  
+	public String addcampiamanager(Manager manager);
+	public List<Manager> displaycampaignmanagers();
+	public String deletemanager(int mid);
+	  
+	public List<Donor> displaydonors();
+	public String deletedonor(int cid);
+	  
+	public long displaydonorcount();
+	public long displaymanagercount();
+	public long displaycampaigncount();
+}

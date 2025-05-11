@@ -1,0 +1,86 @@
+:root {
+  font-family: 'Segoe UI', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #222;
+  background: #f4f7fa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #1de982;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #0f2027;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: url('/crowdfunding-bg.jpg') center center/cover no-repeat fixed;
+  position: relative;
+  color: #222;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  background: linear-gradient(rgba(36, 255, 181, 0.10), rgba(15, 32, 39, 0.35));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+#root, .home-container, .navbar, .navbar-center {
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 2.8em;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #0f2027;
+}
+
+button {
+  border-radius: 10px;
+  border: none;
+  padding: 0.7em 1.5em;
+  font-size: 1.1em;
+  font-weight: 600;
+  font-family: inherit;
+  background: linear-gradient(90deg, #1de982 0%, #0f2027 100%);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(30,200,120,0.10);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+button:hover {
+  background: linear-gradient(90deg, #0f2027 0%, #1de982 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(30,200,120,0.15);
+}
+button:focus,
+button:focus-visible {
+  outline: 3px solid #1de982;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
+  button {
+    font-size: 1em;
+    padding: 0.5em 1em;
+  }
+}

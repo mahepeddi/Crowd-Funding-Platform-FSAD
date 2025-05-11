@@ -1,0 +1,44 @@
+package com.klef.fsd.project.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.klef.fsd.project.model.Donation;
+import com.klef.fsd.project.repository.DonationRepository;
+
+	@Service
+	public class DonationServiceImpl implements DonationService
+	{
+		@Autowired
+		private DonationRepository donationRepository;
+
+		@Override
+		public String addDonation(Donation donation) 
+		{
+		   donaRepository.save(product);
+		   return "Product Added Successfully";
+		}
+
+		@Override
+		public List<Product> viewallProducts() 
+		{
+		    return productRepository.findAll();
+		}
+
+		@Override
+		public Product viewProductById(int pid) 
+		{
+		   return productRepository.findById(pid).orElse(null);
+		}
+
+		@Override
+		public List<Product> viewProductsByCategory(String category) 
+		{
+			return productRepository.findByCategory(category);
+		}
+
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.klef.fsd.project.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.klef.fsd.project.model.Admin;
+import java.util.List;
+
+
+public interface AdminRepository extends JpaRepository<Admin, String>
+{
+	public Admin L<Admi findByUsernameAndPassword(String username, String password);)
+
+}

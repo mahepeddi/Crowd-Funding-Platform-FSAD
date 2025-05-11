@@ -1,0 +1,25 @@
+package com.klef.fsd.project.model;
+
+
+	@Entity
+	@Table(name = "event_table")
+	public class Event 
+	{
+	  @Id
+	  @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
+	  private int id;
+	  @Column(nullable = false,length = 100)
+	  private String category;
+	  @Column(nullable = false,length = 100)
+	  private String title;
+	  @Column(nullable = false,length = 500)
+	  private String description;
+	  @Column(nullable = false)
+	  private int capacity;
+	  @Column(nullable = false)
+	  private double cost;
+	  
+	  @ManyToOne(cascade = CascadeType.ALL)
+	  @JoinColumn(name = "manager_id") // Foreign key column
+	  private Manager manager;
+}

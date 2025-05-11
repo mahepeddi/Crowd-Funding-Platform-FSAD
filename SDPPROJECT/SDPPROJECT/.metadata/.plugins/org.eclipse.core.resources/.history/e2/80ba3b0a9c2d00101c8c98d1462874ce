@@ -1,0 +1,21 @@
+package com.klef.fsd.project.repository;
+
+import java.util.List;
+public interface CampaignRepository
+{
+	import org.springframework.data.jpa.repository.JpaRepository;
+	import org.springframework.data.jpa.repository.Query;
+	import org.springframework.stereotype.Repository;
+
+	import com.klef.fsd.project.model.Campaign;
+	import com.klef.fsd.project.model.Manager;
+
+	@Repository
+	public interface CampaignRepository extends JpaRepository<Event,Integer>
+	{
+		public List<Event> findByManager(Manager manager);
+		
+		 @Query("select count(e) from Event e")
+		 public long eventcount();
+	}
+}
